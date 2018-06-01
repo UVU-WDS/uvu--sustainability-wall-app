@@ -1,0 +1,82 @@
+@green: #1d6813;
+@light-green: #227412;
+@bright-green: #6bfd00;
+@white: #fff;
+
+* { box-sizing: border-box; font-family: 'Rajdhani', sans-serif; }
+body {
+    margin: 0; padding: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+main {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    section {
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        top: 0; left: 0;
+        background-size: 100%;
+        opacity: 0;
+        transition: opacity 0.4s;
+        &.open {
+            opacity: 1;
+        }
+        div {
+            position: absolute;
+        }
+        .icon {
+            width: 100px;
+            height: 100px;
+            background-size: 100%;
+        }
+    }
+    #section-video { background-image: url('images/back-1.jpg'); }
+    #section-energy { background-image: url('images/back-2.jpg'); }
+    #section-water { background-image: url('images/back-3.jpg'); }
+    #section-waste { background-image: url('images/back-4.jpg'); }
+    #section-transit { background-image: url('images/back-5.jpg'); }
+    #section-pledge { background-image: url('images/back-6.jpg'); }
+}
+nav {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: @green;
+    width: 100vw;
+    height: 200px;
+    ul {
+        display: flex;
+        justify-content: space-between;
+        list-style: none;
+        width: 750px;
+        margin: 0; padding: 0;
+        li {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            width: 120px;
+            height: 90%;
+            background-color: @light-green;
+            color: @white;
+            text-transform: uppercase;
+            font-size: 20px;
+            padding: 10px;
+            border-bottom: 5px solid transparent;
+            transition: border-bottom 0.4s;
+            &.active {
+                border-bottom: 5px solid @bright-green;
+            }
+            img {
+                width: 60px;
+                height: 90px;
+            }
+        }
+    }
+}
