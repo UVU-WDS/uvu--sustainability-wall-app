@@ -56,6 +56,11 @@ main section p {
   font-weight: 600;
   margin: 50px;
 }
+main section span {
+  font-size: 25px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
 main section strong {
   font-family: 'Kanit', sans-serif;
   text-transform: uppercase;
@@ -84,8 +89,64 @@ main #section-energy div#energy-1 path {
   height: 100%;
   stroke-width: 4px;
 }
-main #section-energy.open path {
+main #section-energy.open path.svg-border {
   animation: border 1s ease-in-out 0.5s forwards;
+}
+main #section-energy div[data-opens="energy-2"] {
+  top: 100px;
+  left: 235px;
+}
+main #section-energy div#energy-2 {
+  top: 85px;
+  left: 400px;
+  width: 800px;
+  height: 450px;
+}
+main #section-energy div#energy-2 svg {
+  top: 0px;
+  left: -130px;
+}
+main #section-energy div#energy-2 path {
+  fill: none;
+  stroke: #1d6813;
+  stroke-width: 2px;
+  width: 100%;
+  height: 100%;
+}
+main #section-energy div#energy-2 .detail {
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+main #section-energy div#energy-2.opened .detail {
+  opacity: 1;
+}
+main #section-energy div[data-opens="energy-3"] {
+  top: 500px;
+  left: 900px;
+}
+main #section-energy div#energy-3 {
+  top: 400px;
+  left: 950px;
+  width: 800px;
+  height: 450px;
+}
+main #section-energy div#energy-3 svg {
+  top: 0px;
+  left: -130px;
+}
+main #section-energy div#energy-3 path {
+  fill: none;
+  stroke: #1d6813;
+  stroke-width: 2px;
+  width: 100%;
+  height: 100%;
+}
+main #section-energy div#energy-3 .detail {
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+main #section-energy div#energy-3.opened .detail {
+  opacity: 1;
 }
 main #section-water {
   background-image: url('images/back-3.jpg');
