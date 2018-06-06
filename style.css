@@ -26,22 +26,24 @@ main section {
 }
 main section.open {
   opacity: 1;
+  z-index: 2;
 }
-main section div {
+main section > div {
   position: absolute;
   color: #1d6813;
-  z-index: 2;
+}
+main section .hiding {
+  opacity: 0;
 }
 main section .icon {
   width: 40px;
   height: 40px;
   background-size: 100%;
-  z-index: 3;
 }
 main section .icon.closed {
   background-image: url('images/marker.svg');
 }
-main section .icon.opened {
+main section .icon.open {
   background-image: url('images/marker2.svg');
 }
 main section svg {
@@ -50,6 +52,7 @@ main section svg {
   height: 100%;
   top: 0;
   left: 0;
+  transition: opacity 0.2s;
 }
 main section p {
   font-size: 25px;
@@ -66,6 +69,39 @@ main section strong {
   text-transform: uppercase;
   font-size: 30px;
   line-height: 25px;
+}
+main section .summary {
+  transition: opacity 0.2s;
+}
+main section .detail {
+  z-index: 4;
+  pointer-events: none;
+  position: absolute;
+  background-color: #181818;
+  color: #fff;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+main section .detail .close-icon {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+main section .detail .highlight {
+  width: 100%;
+  background-size: 175px 100%;
+  background-repeat: no-repeat;
+}
+main section .detail .highlight:nth-child(even) {
+  background-color: #1a1a1a;
+}
+main section .detail p {
+  font-size: 18px;
+  margin: 50px 50px 50px 200px;
 }
 main #section-video {
   background-image: url('images/back-1.jpg');
@@ -114,25 +150,37 @@ main #section-energy div#energy-2 path {
   height: 100%;
 }
 main #section-energy div#energy-2 .detail {
+  top: 0;
+  left: -500px;
   opacity: 0;
   transition: opacity 0.4s;
 }
+main #section-energy div#energy-2 .detail .highlight:nth-child(2) {
+  background-image: url('http://via.placeholder.com/200x150');
+}
+main #section-energy div#energy-2 .detail .highlight:nth-child(3) {
+  background-image: url('http://via.placeholder.com/200x150');
+}
+main #section-energy div#energy-2 .detail .highlight:nth-child(4) {
+  background-image: url('http://via.placeholder.com/200x150');
+}
 main #section-energy div#energy-2.opened .detail {
   opacity: 1;
+  pointer-events: initial;
 }
 main #section-energy div[data-opens="energy-3"] {
-  top: 500px;
-  left: 900px;
+  top: 295px;
+  left: 840px;
 }
 main #section-energy div#energy-3 {
-  top: 400px;
-  left: 950px;
+  top: 180px;
+  left: 905px;
   width: 800px;
   height: 450px;
 }
 main #section-energy div#energy-3 svg {
-  top: 0px;
-  left: -130px;
+  top: 13px;
+  left: -45px;
 }
 main #section-energy div#energy-3 path {
   fill: none;
@@ -142,11 +190,63 @@ main #section-energy div#energy-3 path {
   height: 100%;
 }
 main #section-energy div#energy-3 .detail {
+  top: 0;
+  left: -500px;
   opacity: 0;
   transition: opacity 0.4s;
 }
+main #section-energy div#energy-3 .detail .highlight:nth-child(2) {
+  background-image: url('http://via.placeholder.com/200x150');
+}
+main #section-energy div#energy-3 .detail .highlight:nth-child(3) {
+  background-image: url('http://via.placeholder.com/200x150');
+}
+main #section-energy div#energy-3 .detail .highlight:nth-child(4) {
+  background-image: url('http://via.placeholder.com/200x150');
+}
 main #section-energy div#energy-3.opened .detail {
   opacity: 1;
+  pointer-events: initial;
+}
+main #section-energy div[data-opens="energy-4"] {
+  top: 720px;
+  left: 1715px;
+}
+main #section-energy div#energy-4 {
+  top: 815px;
+  left: 1315px;
+  width: 800px;
+  height: 450px;
+}
+main #section-energy div#energy-4 svg {
+  top: -60px;
+  left: 380px;
+}
+main #section-energy div#energy-4 path {
+  fill: none;
+  stroke: #1d6813;
+  stroke-width: 2px;
+  width: 100%;
+  height: 100%;
+}
+main #section-energy div#energy-4 .detail {
+  top: 0;
+  left: -500px;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+main #section-energy div#energy-4 .detail .highlight:nth-child(2) {
+  background-image: url('http://via.placeholder.com/200x150');
+}
+main #section-energy div#energy-4 .detail .highlight:nth-child(3) {
+  background-image: url('http://via.placeholder.com/200x150');
+}
+main #section-energy div#energy-4 .detail .highlight:nth-child(4) {
+  background-image: url('http://via.placeholder.com/200x150');
+}
+main #section-energy div#energy-4.opened .detail {
+  opacity: 1;
+  pointer-events: initial;
 }
 main #section-water {
   background-image: url('images/back-3.jpg');

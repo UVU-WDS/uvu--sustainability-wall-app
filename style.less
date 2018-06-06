@@ -2,6 +2,8 @@
 @light-green: #227412;
 @bright-green: #6bfd00;
 @white: #fff;
+@black: #181818;
+@almost-black: #1a1a1a;
 
 * { box-sizing: border-box; font-family: 'Rajdhani', sans-serif; }
 body {
@@ -24,21 +26,21 @@ main {
         transition: opacity 0.4s;
         &.open {
             opacity: 1;
-        }
-        div {
-            position: absolute;
-            color: @green;
             z-index: 2;
         }
+        > div {
+            position: absolute;
+            color: @green;
+        }
+        .hiding { opacity: 0; }
         .icon {
             width: 40px;
             height: 40px;
             background-size: 100%;
-            z-index: 3;
             &.closed { background-image: url('images/marker.svg'); }
-            &.opened { background-image: url('images/marker2.svg'); }
+            &.open { background-image: url('images/marker2.svg'); }
         }
-        svg { position: absolute; width: 100%; height: 100%; top: 0; left: 0; }
+        svg { position: absolute; width: 100%; height: 100%; top: 0; left: 0; transition: opacity 0.2s; }
         p {
             font-size: 25px;
             font-weight: 600;
@@ -50,6 +52,35 @@ main {
             text-transform: uppercase;
             font-size: 30px;
             line-height: 25px;
+        }
+        .summary { transition: opacity 0.2s; }
+        .detail {
+            z-index: 4;
+            pointer-events: none;
+            position: absolute;
+            background-color: @black;
+            color: @white;
+            width: 100%; height: auto;
+            display: flex; flex-direction: column;
+            .close-icon {
+                width: 40px;
+                height: 40px;
+                position: absolute;
+                right: 20px;
+                top: 20px;
+            }
+            .highlight {
+                width: 100%;
+                background-size: 175px 100%;
+                background-repeat: no-repeat;
+                &:nth-child(even) {
+                    background-color: @almost-black;
+                }
+            }
+            p {
+                font-size: 18px;
+                margin: 50px 50px 50px 200px;
+            }
         }
     }
     #section-video { background-image: url('images/back-1.jpg'); }
@@ -79,22 +110,57 @@ main {
                 stroke-width: 2px;
                 width: 100%; height: 100%;
             }
-            .detail { opacity: 0; transition: opacity 0.4s; }
-            &.opened .detail { opacity: 1; }
+            .detail {
+                top: 0; left: -500px;
+                opacity: 0;
+                transition: opacity 0.4s;
+                .highlight:nth-child(2) { background-image: url('http://via.placeholder.com/200x150'); }
+                .highlight:nth-child(3) { background-image: url('http://via.placeholder.com/200x150'); }
+                .highlight:nth-child(4) { background-image: url('http://via.placeholder.com/200x150'); }
+            }
+            &.opened .detail { opacity: 1; pointer-events: initial; }
         }
-        div[data-opens="energy-3"] { top: 500px; left: 900px; }
+        div[data-opens="energy-3"] { top: 295px; left: 840px; }
         div#energy-3 {
-            top: 400px; left: 950px;
+            top: 180px; left: 905px;
             width: 800px; height: 450px;
-            svg { top: 0px; left: -130px; }
+            svg { top: 13px; left: -45px; }
             path {
                 fill: none;
                 stroke: @green;
                 stroke-width: 2px;
                 width: 100%; height: 100%;
             }
-            .detail { opacity: 0; transition: opacity 0.4s; }
-            &.opened .detail { opacity: 1; }
+            .detail {
+                top: 0; left: -500px;
+                opacity: 0;
+                transition: opacity 0.4s;
+                .highlight:nth-child(2) { background-image: url('http://via.placeholder.com/200x150'); }
+                .highlight:nth-child(3) { background-image: url('http://via.placeholder.com/200x150'); }
+                .highlight:nth-child(4) { background-image: url('http://via.placeholder.com/200x150'); }
+            }
+            &.opened .detail { opacity: 1; pointer-events: initial; }
+        }
+        div[data-opens="energy-4"] { top: 720px; left: 1715px; }
+        div#energy-4 {
+            top: 815px; left: 1315px;
+            width: 800px; height: 450px;
+            svg { top: -60px; left: 380px; }
+            path {
+                fill: none;
+                stroke: @green;
+                stroke-width: 2px;
+                width: 100%; height: 100%;
+            }
+            .detail {
+                top: 0; left: -500px;
+                opacity: 0;
+                transition: opacity 0.4s;
+                .highlight:nth-child(2) { background-image: url('http://via.placeholder.com/200x150'); }
+                .highlight:nth-child(3) { background-image: url('http://via.placeholder.com/200x150'); }
+                .highlight:nth-child(4) { background-image: url('http://via.placeholder.com/200x150'); }
+            }
+            &.opened .detail { opacity: 1; pointer-events: initial; }
         }
     }
     #section-water { background-image: url('images/back-3.jpg'); }
