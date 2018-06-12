@@ -14,6 +14,18 @@ main {
   height: 100vh;
   position: relative;
 }
+main .backdrop {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+main .backdrop.active {
+  opacity: 1;
+}
 main section {
   width: 100vw;
   height: 100vh;
@@ -43,13 +55,21 @@ main section .icon {
 main section .icon.closed {
   background-image: url('images/marker.svg');
 }
+main section .icon.closed:before {
+  box-sizing: border-box;
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 10px solid #1d6813;
+  border-radius: 50%;
+  animation: pulse 3s ease-out infinite forwards;
+}
 main section .icon.open {
   background-image: url('images/marker2.svg');
 }
 main section svg {
   position: absolute;
-  width: 100%;
-  height: 100%;
   top: 0;
   left: 0;
   transition: opacity 0.2s;
@@ -76,10 +96,13 @@ main section .summary {
 main section .detail {
   z-index: 4;
   pointer-events: none;
-  position: absolute;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, calc(-50% - 100px));
   background-color: #181818;
   color: #fff;
-  width: 100%;
+  width: 1000px;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -109,6 +132,13 @@ main #section-video {
 main #section-energy {
   background-image: url('images/back-2.jpg');
 }
+main #section-energy.open > div:not(.backdrop) {
+  opacity: 0;
+  animation: fadingin 1.5s ease-out 0.2s forwards;
+}
+main #section-energy.open path.svg-border {
+  animation: border 1s ease-in-out 0.5s forwards;
+}
 main #section-energy div[data-opens="energy-1"] {
   top: 560px;
   left: 1355px;
@@ -118,15 +148,14 @@ main #section-energy div#energy-1 {
   left: 175px;
   width: 1200px;
 }
+main #section-energy div#energy-1 svg {
+  height: 100%;
+  width: 100%;
+}
 main #section-energy div#energy-1 path {
   fill: none;
   stroke: #1d6813;
-  width: 100%;
-  height: 100%;
   stroke-width: 4px;
-}
-main #section-energy.open path.svg-border {
-  animation: border 1s ease-in-out 0.5s forwards;
 }
 main #section-energy div[data-opens="energy-2"] {
   top: 100px;
@@ -135,8 +164,6 @@ main #section-energy div[data-opens="energy-2"] {
 main #section-energy div#energy-2 {
   top: 85px;
   left: 400px;
-  width: 800px;
-  height: 450px;
 }
 main #section-energy div#energy-2 svg {
   top: 0px;
@@ -146,17 +173,10 @@ main #section-energy div#energy-2 path {
   fill: none;
   stroke: #1d6813;
   stroke-width: 2px;
-  width: 100%;
-  height: 100%;
 }
 main #section-energy div#energy-2 .detail {
-  top: 0;
-  left: -500px;
   opacity: 0;
   transition: opacity 0.4s;
-}
-main #section-energy div#energy-2 .detail .highlight:nth-child(2) {
-  background-image: url('http://via.placeholder.com/200x150');
 }
 main #section-energy div#energy-2 .detail .highlight:nth-child(3) {
   background-image: url('http://via.placeholder.com/200x150');
@@ -175,8 +195,6 @@ main #section-energy div[data-opens="energy-3"] {
 main #section-energy div#energy-3 {
   top: 180px;
   left: 905px;
-  width: 800px;
-  height: 450px;
 }
 main #section-energy div#energy-3 svg {
   top: 13px;
@@ -186,22 +204,18 @@ main #section-energy div#energy-3 path {
   fill: none;
   stroke: #1d6813;
   stroke-width: 2px;
-  width: 100%;
-  height: 100%;
 }
 main #section-energy div#energy-3 .detail {
-  top: 0;
-  left: -500px;
   opacity: 0;
   transition: opacity 0.4s;
-}
-main #section-energy div#energy-3 .detail .highlight:nth-child(2) {
-  background-image: url('http://via.placeholder.com/200x150');
 }
 main #section-energy div#energy-3 .detail .highlight:nth-child(3) {
   background-image: url('http://via.placeholder.com/200x150');
 }
 main #section-energy div#energy-3 .detail .highlight:nth-child(4) {
+  background-image: url('http://via.placeholder.com/200x150');
+}
+main #section-energy div#energy-3 .detail .highlight:nth-child(5) {
   background-image: url('http://via.placeholder.com/200x150');
 }
 main #section-energy div#energy-3.opened .detail {
@@ -215,8 +229,6 @@ main #section-energy div[data-opens="energy-4"] {
 main #section-energy div#energy-4 {
   top: 815px;
   left: 1315px;
-  width: 800px;
-  height: 450px;
 }
 main #section-energy div#energy-4 svg {
   top: -60px;
@@ -226,22 +238,12 @@ main #section-energy div#energy-4 path {
   fill: none;
   stroke: #1d6813;
   stroke-width: 2px;
-  width: 100%;
-  height: 100%;
 }
 main #section-energy div#energy-4 .detail {
-  top: 0;
-  left: -500px;
   opacity: 0;
   transition: opacity 0.4s;
 }
-main #section-energy div#energy-4 .detail .highlight:nth-child(2) {
-  background-image: url('http://via.placeholder.com/200x150');
-}
 main #section-energy div#energy-4 .detail .highlight:nth-child(3) {
-  background-image: url('http://via.placeholder.com/200x150');
-}
-main #section-energy div#energy-4 .detail .highlight:nth-child(4) {
   background-image: url('http://via.placeholder.com/200x150');
 }
 main #section-energy div#energy-4.opened .detail {
@@ -260,9 +262,28 @@ main #section-transit {
 main #section-pledge {
   background-image: url('images/back-6.jpg');
 }
+@keyframes fadingin {
+  to {
+    opacity: 1;
+  }
+}
 @keyframes border {
   to {
     stroke-dashoffset: 800;
+  }
+}
+@keyframes pulse {
+  0%,
+  59.9% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.4);
   }
 }
 nav {

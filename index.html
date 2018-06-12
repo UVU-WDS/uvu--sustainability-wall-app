@@ -12,6 +12,11 @@
 		<main>
 			<section class="open" id="section-video">Video</section>
 			<section id="section-energy">
+				<div class="icon open" data-opens="energy-1"></div>
+				<div class="icon closed" data-opens="energy-2"></div>
+				<div class="icon closed" data-opens="energy-3"></div>
+				<div class="icon closed" data-opens="energy-4"></div>
+
 				<div id="energy-1">
 					<svg><path class="svg-border" d="M1200 71.25 L1200 0 L0 0 L0 285 L1200 285 Z" /></svg>
 					<div class="summary">
@@ -19,30 +24,15 @@
 							UVU campus was designed with unit construction buildings, a concept far ahead of its time. The buildings were built much like a "LEGO" block system, so that the grid could be adapted in all directions. This has allowed UVU to expand in a much more cost effective and efficient manner. Buildings can be added to an already efficient system instead of creating new systems for each structure.</p>
 					</div>
 				</div>
-				<div class="icon open" data-opens="energy-1"></div>
+
 				<div id="energy-2">
 					<svg><path d="M0 30 L85 30 Z M120 15 L85 15 L85 45 L120 45" /></svg>
 					<div class="summary">
 						<span>Utilization of Natural Light</span><br/>
 						<span>LED Lighting</span>
 					</div>
-					<div class="detail">
-							<div class="close-icon"><img src="images/close-x.svg" /></div>
-							<div class="highlight">
-								<p><span>Window Tinting</span><br/>
-								To ensure the coolness of buildings</p>
-							</div>
-							<div class="highlight">
-								<p><span>Solar Panels</span><br/>
-								The Capitol Reef Field Station (run almost exclusively on solar power)</p>
-							</div>
-							<div class="highlight">
-								<p><span>Light Harvesters</span><br/>
-								The metal plates on the outside of the library and can be retracted or let down to control light and heat in the library</p>
-							</div>
-						</div>
 				</div>
-				<div class="icon closed" data-opens="energy-2"></div>
+
 				<div id="energy-3">
 					<svg><path d="M0 120 L0 0 L35 0 M0 32.5 L35 32.5 M0 65 L35 65" /></svg>
 					<div class="summary">
@@ -50,45 +40,53 @@
 						<span>Solar Panels</span><br/>
 						<span>Light Harvesters</span>
 					</div>
-					<div class="detail">
-						<div class="close-icon"><img src="images/close-x.svg" /></div>
-						<div class="highlight">
-							<p><span>Window Tinting</span><br/>
-							To ensure the coolness of buildings</p>
-						</div>
-						<div class="highlight">
-							<p><span>Solar Panels</span><br/>
-							The Capitol Reef Field Station (run almost exclusively on solar power)</p>
-						</div>
-						<div class="highlight">
-							<p><span>Light Harvesters</span><br/>
-							The metal plates on the outside of the library and can be retracted or let down to control light and heat in the library</p>
-						</div>
-					</div>
 				</div>
-				<div class="icon closed" data-opens="energy-3"></div>
+
 				<div id="energy-4">
 					<svg><path d="M0 75 L40 75 L40 0" /></svg>
 					<div class="summary">
 						<span>Geo Thermal Heating and Cooling</span>
 					</div>
-					<div class="detail">
-							<div class="close-icon"><img src="images/close-x.svg" /></div>
-							<div class="highlight">
-								<p><span>Window Tinting</span><br/>
-								To ensure the coolness of buildings</p>
-							</div>
-							<div class="highlight">
-								<p><span>Solar Panels</span><br/>
-								The Capitol Reef Field Station (run almost exclusively on solar power)</p>
-							</div>
-							<div class="highlight">
-								<p><span>Light Harvesters</span><br/>
-								The metal plates on the outside of the library and can be retracted or let down to control light and heat in the library</p>
-							</div>
-						</div>
 				</div>
-				<div class="icon closed" data-opens="energy-4"></div>
+
+				<div class="backdrop"></div>
+
+				<div id="energy-2-modal" class="modal">
+					<div class="close-icon"><img src="images/close-x.svg" /></div>
+					<div class="highlight">
+						<p><span>Utilization of Natural Light</span><br/>
+						Lorum ipsum</p>
+					</div>
+					<div class="highlight">
+						<p><span>LED Lighting</span><br/>
+						Lorum ipsum</p>
+					</div>
+				</div>
+
+				<div id="energy-3-modal" class="modal">
+					<div class="close-icon"><img src="images/close-x.svg" /></div>
+					<div class="highlight">
+						<p><span>Window Tinting</span><br/>
+						To ensure the coolness of buildings</p>
+					</div>
+					<div class="highlight">
+						<p><span>Solar Panels</span><br/>
+						The Capitol Reef Field Station (run almost exclusively on solar power)</p>
+					</div>
+					<div class="highlight">
+						<p><span>Light Harvesters</span><br/>
+						The metal plates on the outside of the library and can be retracted or let down to control light and heat in the library</p>
+					</div>
+				</div>
+
+				<div id="energy-4-modal" class="modal">
+					<div class="close-icon"><img src="images/close-x.svg" /></div>
+					<div class="highlight">
+						<p><span>Geo Thermal Heating and Cooling</span><br/>
+						Lorum ipsum</p>
+					</div>
+				</div>
+
 			</section>
 			<section id="section-water">Water</section>
 			<section id="section-waste">Waste</section>

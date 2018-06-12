@@ -16,6 +16,16 @@ main {
     width: 100vw;
     height: 100vh;
     position: relative;
+    .backdrop {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0,0,0,0.7);
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.4s;
+        &.active { opacity: 1; }
+    }
     section {
         width: 100vw;
         height: 100vh;
@@ -37,10 +47,22 @@ main {
             width: 40px;
             height: 40px;
             background-size: 100%;
-            &.closed { background-image: url('images/marker.svg'); }
+            &.closed {
+                background-image: url('images/marker.svg');
+                &:before {
+                    box-sizing: border-box;
+                    content: '';
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    border: 10px solid @green;
+                    border-radius: 50%;
+                    animation: pulse 3s ease-out infinite forwards;
+                }
+            }
             &.open { background-image: url('images/marker2.svg'); }
         }
-        svg { position: absolute; width: 100%; height: 100%; top: 0; left: 0; transition: opacity 0.2s; }
+        svg { position: absolute; top: 0; left: 0; transition: opacity 0.2s; }
         p {
             font-size: 25px;
             font-weight: 600;
@@ -57,10 +79,12 @@ main {
         .detail {
             z-index: 4;
             pointer-events: none;
-            position: absolute;
+            position: fixed;
+            top: 50%; left: 50%;
+            transform: translate(-50%,~"calc(-50% - 100px)");
             background-color: @black;
             color: @white;
-            width: 100%; height: auto;
+            width: 1000px; height: auto;
             display: flex; flex-direction: column;
             .close-icon {
                 width: 40px;
@@ -86,35 +110,31 @@ main {
     #section-video { background-image: url('images/back-1.jpg'); }
     #section-energy {
         background-image: url('images/back-2.jpg');
+        &.open > div:not(.backdrop) { opacity: 0; animation: fadingin 1.5s ease-out 0.2s forwards; }
+        &.open path.svg-border { animation: border 1s ease-in-out 0.5s forwards; }
         div[data-opens="energy-1"] { top: 560px; left: 1355px; }
         div#energy-1 {
             top: 520px; left: 175px;
             width: 1200px;
+            svg { height: 100%; width: 100%; }
             path {
                 fill: none;
                 stroke: @green;
-                width: 100%;
-                height: 100%;
                 stroke-width: 4px;
             }
         }
-        &.open path.svg-border { animation: border 1s ease-in-out 0.5s forwards; }
         div[data-opens="energy-2"] { top: 100px; left: 235px; }
         div#energy-2 {
             top: 85px; left: 400px;
-            width: 800px; height: 450px;
             svg { top: 0px; left: -130px; }
             path {
                 fill: none;
                 stroke: @green;
                 stroke-width: 2px;
-                width: 100%; height: 100%;
             }
             .detail {
-                top: 0; left: -500px;
                 opacity: 0;
                 transition: opacity 0.4s;
-                .highlight:nth-child(2) { background-image: url('http://via.placeholder.com/200x150'); }
                 .highlight:nth-child(3) { background-image: url('http://via.placeholder.com/200x150'); }
                 .highlight:nth-child(4) { background-image: url('http://via.placeholder.com/200x150'); }
             }
@@ -123,42 +143,34 @@ main {
         div[data-opens="energy-3"] { top: 295px; left: 840px; }
         div#energy-3 {
             top: 180px; left: 905px;
-            width: 800px; height: 450px;
             svg { top: 13px; left: -45px; }
             path {
                 fill: none;
                 stroke: @green;
                 stroke-width: 2px;
-                width: 100%; height: 100%;
             }
             .detail {
-                top: 0; left: -500px;
                 opacity: 0;
                 transition: opacity 0.4s;
-                .highlight:nth-child(2) { background-image: url('http://via.placeholder.com/200x150'); }
                 .highlight:nth-child(3) { background-image: url('http://via.placeholder.com/200x150'); }
                 .highlight:nth-child(4) { background-image: url('http://via.placeholder.com/200x150'); }
+                .highlight:nth-child(5) { background-image: url('http://via.placeholder.com/200x150'); }
             }
             &.opened .detail { opacity: 1; pointer-events: initial; }
         }
         div[data-opens="energy-4"] { top: 720px; left: 1715px; }
         div#energy-4 {
             top: 815px; left: 1315px;
-            width: 800px; height: 450px;
             svg { top: -60px; left: 380px; }
             path {
                 fill: none;
                 stroke: @green;
                 stroke-width: 2px;
-                width: 100%; height: 100%;
             }
             .detail {
-                top: 0; left: -500px;
                 opacity: 0;
                 transition: opacity 0.4s;
-                .highlight:nth-child(2) { background-image: url('http://via.placeholder.com/200x150'); }
                 .highlight:nth-child(3) { background-image: url('http://via.placeholder.com/200x150'); }
-                .highlight:nth-child(4) { background-image: url('http://via.placeholder.com/200x150'); }
             }
             &.opened .detail { opacity: 1; pointer-events: initial; }
         }
@@ -168,8 +180,16 @@ main {
     #section-transit { background-image: url('images/back-5.jpg'); }
     #section-pledge { background-image: url('images/back-6.jpg'); }
 }
+@keyframes fadingin {
+    to { opacity: 1; }
+}
 @keyframes border {
     to { stroke-dashoffset: 800; }
+}
+@keyframes pulse {
+    0%, 59.9% { opacity: 0; }
+    60% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.4); }
 }
 nav {
     position: fixed;

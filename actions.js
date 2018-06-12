@@ -10,20 +10,13 @@ $('.svg-border').each(function(){
 
 var somethingOpen = false;
 
-function cleanScreen(){
-    if (somethingOpen) {
-        $('section.open svg, section.open .summary, section.open .icon.open').addClass('hiding');
-    } else {
-        $('.hiding').removeClass('hiding');
-    }
-}
-
 function closeAll(){
     $('section > div.opened').removeClass('opened');
+    $('.backdrop').removeClass('active');
     somethingOpen = false;
-    cleanScreen();
 }
 
+// Main navigation
 $('nav li').on('click', function(){
     closeAll();
     $('nav .active').removeClass('active');
@@ -33,17 +26,19 @@ $('nav li').on('click', function(){
     $('#section-'+id).addClass('open');
 });
 
+// Details modals
 $('.icon.closed').on('click', function(e){
     var id = $(this).attr('data-opens');
     if ($('#'+id).hasClass('opened')) {
         $('#'+id).removeClass('opened');
+        $('.backdrop').removeClass('active');
         somethingOpen = false;
     } else {
         closeAll();
         $('#'+id).addClass('opened');
+        $('#'+id+' .backdrop').addClass('active');
         somethingOpen = true;
     }
-    cleanScreen();
 });
 
 $('.close-icon').on('click', closeAll);
