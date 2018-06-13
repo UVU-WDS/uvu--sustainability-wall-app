@@ -1,19 +1,17 @@
 $(function(){
 
+// Set properties on SVG paths so they can be animated with CSS
 $('.svg-border').each(function(){
     var length = this.getTotalLength();
-    var dynamiclength = this.getTotalLength() - (Math.floor(Math.random() * Math.floor(this.getTotalLength())) / 2);
     $(this)
         .css('stroke-dasharray', length)
         .css('stroke-dashoffset', length);
 });
 
-var somethingOpen = false;
-
+// Clean-up after modals
 function closeAll(){
     $('section > div.opened').removeClass('opened');
     $('.backdrop').removeClass('active');
-    somethingOpen = false;
 }
 
 // Main navigation
@@ -32,15 +30,14 @@ $('.icon.closed').on('click', function(){
     if ($('#'+id+'-modal').hasClass('opened')) {
         $('#'+id+'-modal').removeClass('opened');
         $('.backdrop').removeClass('active');
-        somethingOpen = false;
     } else {
         closeAll();
         $('#'+id+'-modal').addClass('opened');
         $('.backdrop').addClass('active');
-        somethingOpen = true;
     }
 });
 
+// When closing a modal
 $('.close-icon').on('click', closeAll);
 
 });
