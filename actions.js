@@ -27,16 +27,16 @@ $('nav li').on('click', function(){
 });
 
 // Details modals
-$('.icon.closed').on('click', function(e){
+$('.icon.closed').on('click', function(){
     var id = $(this).attr('data-opens');
-    if ($('#'+id).hasClass('opened')) {
-        $('#'+id).removeClass('opened');
+    if ($('#'+id+'-modal').hasClass('opened')) {
+        $('#'+id+'-modal').removeClass('opened');
         $('.backdrop').removeClass('active');
         somethingOpen = false;
     } else {
         closeAll();
-        $('#'+id).addClass('opened');
-        $('#'+id+' .backdrop').addClass('active');
+        $('#'+id+'-modal').addClass('opened');
+        $('.backdrop').addClass('active');
         somethingOpen = true;
     }
 });

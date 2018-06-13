@@ -16,16 +16,6 @@ main {
     width: 100vw;
     height: 100vh;
     position: relative;
-    .backdrop {
-        position: fixed;
-        width: 100vw;
-        height: 100vh;
-        background-color: rgba(0,0,0,0.7);
-        pointer-events: none;
-        opacity: 0;
-        transition: opacity 0.4s;
-        &.active { opacity: 1; }
-    }
     section {
         width: 100vw;
         height: 100vh;
@@ -76,7 +66,17 @@ main {
             line-height: 25px;
         }
         .summary { transition: opacity 0.2s; }
-        .detail {
+        .backdrop {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0,0,0,0.7);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.4s;
+            &.active { opacity: 1; }
+        }
+        .modal {
             z-index: 4;
             pointer-events: none;
             position: fixed;
@@ -110,7 +110,7 @@ main {
     #section-video { background-image: url('images/back-1.jpg'); }
     #section-energy {
         background-image: url('images/back-2.jpg');
-        &.open > div:not(.backdrop) { opacity: 0; animation: fadingin 1.5s ease-out 0.2s forwards; }
+        &.open > div:nth-child(-n+8) { opacity: 0; animation: fadingin 1.5s ease-out 0.2s forwards; }
         &.open path.svg-border { animation: border 1s ease-in-out 0.5s forwards; }
         div[data-opens="energy-1"] { top: 560px; left: 1355px; }
         div#energy-1 {
@@ -132,13 +132,6 @@ main {
                 stroke: @green;
                 stroke-width: 2px;
             }
-            .detail {
-                opacity: 0;
-                transition: opacity 0.4s;
-                .highlight:nth-child(3) { background-image: url('http://via.placeholder.com/200x150'); }
-                .highlight:nth-child(4) { background-image: url('http://via.placeholder.com/200x150'); }
-            }
-            &.opened .detail { opacity: 1; pointer-events: initial; }
         }
         div[data-opens="energy-3"] { top: 295px; left: 840px; }
         div#energy-3 {
@@ -149,14 +142,6 @@ main {
                 stroke: @green;
                 stroke-width: 2px;
             }
-            .detail {
-                opacity: 0;
-                transition: opacity 0.4s;
-                .highlight:nth-child(3) { background-image: url('http://via.placeholder.com/200x150'); }
-                .highlight:nth-child(4) { background-image: url('http://via.placeholder.com/200x150'); }
-                .highlight:nth-child(5) { background-image: url('http://via.placeholder.com/200x150'); }
-            }
-            &.opened .detail { opacity: 1; pointer-events: initial; }
         }
         div[data-opens="energy-4"] { top: 720px; left: 1715px; }
         div#energy-4 {
@@ -167,12 +152,27 @@ main {
                 stroke: @green;
                 stroke-width: 2px;
             }
-            .detail {
-                opacity: 0;
-                transition: opacity 0.4s;
-                .highlight:nth-child(3) { background-image: url('http://via.placeholder.com/200x150'); }
-            }
-            &.opened .detail { opacity: 1; pointer-events: initial; }
+        }
+        #energy-2-modal {
+            opacity: 0;
+            transition: opacity 0.4s;
+            .highlight:nth-child(2) { background-image: url('http://via.placeholder.com/200x150'); }
+            .highlight:nth-child(3) { background-image: url('http://via.placeholder.com/200x150'); }
+            &.opened { opacity: 1; pointer-events: initial; }
+        }
+        #energy-3-modal {
+            opacity: 0;
+            transition: opacity 0.4s;
+            .highlight:nth-child(2) { background-image: url('http://via.placeholder.com/200x150'); }
+            .highlight:nth-child(3) { background-image: url('http://via.placeholder.com/200x150'); }
+            .highlight:nth-child(4) { background-image: url('http://via.placeholder.com/200x150'); }
+            &.opened { opacity: 1; pointer-events: initial; }
+        }
+        #energy-4-modal {
+            opacity: 0;
+            transition: opacity 0.4s;
+            .highlight:nth-child(2) { background-image: url('http://via.placeholder.com/200x150'); }
+            &.opened { opacity: 1; pointer-events: initial; }
         }
     }
     #section-water { background-image: url('images/back-3.jpg'); }

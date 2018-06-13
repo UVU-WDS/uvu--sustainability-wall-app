@@ -14,18 +14,6 @@ main {
   height: 100vh;
   position: relative;
 }
-main .backdrop {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.7);
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.4s;
-}
-main .backdrop.active {
-  opacity: 1;
-}
 main section {
   width: 100vw;
   height: 100vh;
@@ -93,7 +81,19 @@ main section strong {
 main section .summary {
   transition: opacity 0.2s;
 }
-main section .detail {
+main section .backdrop {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+main section .backdrop.active {
+  opacity: 1;
+}
+main section .modal {
   z-index: 4;
   pointer-events: none;
   position: fixed;
@@ -107,22 +107,22 @@ main section .detail {
   display: flex;
   flex-direction: column;
 }
-main section .detail .close-icon {
+main section .modal .close-icon {
   width: 40px;
   height: 40px;
   position: absolute;
   right: 20px;
   top: 20px;
 }
-main section .detail .highlight {
+main section .modal .highlight {
   width: 100%;
   background-size: 175px 100%;
   background-repeat: no-repeat;
 }
-main section .detail .highlight:nth-child(even) {
+main section .modal .highlight:nth-child(even) {
   background-color: #1a1a1a;
 }
-main section .detail p {
+main section .modal p {
   font-size: 18px;
   margin: 50px 50px 50px 200px;
 }
@@ -132,7 +132,7 @@ main #section-video {
 main #section-energy {
   background-image: url('images/back-2.jpg');
 }
-main #section-energy.open > div:not(.backdrop) {
+main #section-energy.open > div:nth-child(-n+8) {
   opacity: 0;
   animation: fadingin 1.5s ease-out 0.2s forwards;
 }
@@ -174,20 +174,6 @@ main #section-energy div#energy-2 path {
   stroke: #1d6813;
   stroke-width: 2px;
 }
-main #section-energy div#energy-2 .detail {
-  opacity: 0;
-  transition: opacity 0.4s;
-}
-main #section-energy div#energy-2 .detail .highlight:nth-child(3) {
-  background-image: url('http://via.placeholder.com/200x150');
-}
-main #section-energy div#energy-2 .detail .highlight:nth-child(4) {
-  background-image: url('http://via.placeholder.com/200x150');
-}
-main #section-energy div#energy-2.opened .detail {
-  opacity: 1;
-  pointer-events: initial;
-}
 main #section-energy div[data-opens="energy-3"] {
   top: 295px;
   left: 840px;
@@ -204,23 +190,6 @@ main #section-energy div#energy-3 path {
   fill: none;
   stroke: #1d6813;
   stroke-width: 2px;
-}
-main #section-energy div#energy-3 .detail {
-  opacity: 0;
-  transition: opacity 0.4s;
-}
-main #section-energy div#energy-3 .detail .highlight:nth-child(3) {
-  background-image: url('http://via.placeholder.com/200x150');
-}
-main #section-energy div#energy-3 .detail .highlight:nth-child(4) {
-  background-image: url('http://via.placeholder.com/200x150');
-}
-main #section-energy div#energy-3 .detail .highlight:nth-child(5) {
-  background-image: url('http://via.placeholder.com/200x150');
-}
-main #section-energy div#energy-3.opened .detail {
-  opacity: 1;
-  pointer-events: initial;
 }
 main #section-energy div[data-opens="energy-4"] {
   top: 720px;
@@ -239,14 +208,45 @@ main #section-energy div#energy-4 path {
   stroke: #1d6813;
   stroke-width: 2px;
 }
-main #section-energy div#energy-4 .detail {
+main #section-energy #energy-2-modal {
   opacity: 0;
   transition: opacity 0.4s;
 }
-main #section-energy div#energy-4 .detail .highlight:nth-child(3) {
+main #section-energy #energy-2-modal .highlight:nth-child(2) {
   background-image: url('http://via.placeholder.com/200x150');
 }
-main #section-energy div#energy-4.opened .detail {
+main #section-energy #energy-2-modal .highlight:nth-child(3) {
+  background-image: url('http://via.placeholder.com/200x150');
+}
+main #section-energy #energy-2-modal.opened {
+  opacity: 1;
+  pointer-events: initial;
+}
+main #section-energy #energy-3-modal {
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+main #section-energy #energy-3-modal .highlight:nth-child(2) {
+  background-image: url('http://via.placeholder.com/200x150');
+}
+main #section-energy #energy-3-modal .highlight:nth-child(3) {
+  background-image: url('http://via.placeholder.com/200x150');
+}
+main #section-energy #energy-3-modal .highlight:nth-child(4) {
+  background-image: url('http://via.placeholder.com/200x150');
+}
+main #section-energy #energy-3-modal.opened {
+  opacity: 1;
+  pointer-events: initial;
+}
+main #section-energy #energy-4-modal {
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+main #section-energy #energy-4-modal .highlight:nth-child(2) {
+  background-image: url('http://via.placeholder.com/200x150');
+}
+main #section-energy #energy-4-modal.opened {
   opacity: 1;
   pointer-events: initial;
 }
