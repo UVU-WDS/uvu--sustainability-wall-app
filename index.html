@@ -10,10 +10,17 @@
 	</head>
 	<body>
 		<main>
-			<section class="open" id="section-video">Video</section>
+			<section class="open" id="section-video">
+					<iframe class="videobackground" allowfullscreen="1" allow="autoplay; encrypted-media" title="YouTube video player" src="https://www.youtube.com/embed/0gWTqEq_qGU?pre=video&amp;id=0gWTqEq_qGU&amp;autoplay=1&amp;mute=true&amp;loop=1&amp;controls=0&amp;showinfo=0&amp;modestbranding=1&amp;rel=0&amp;fs=0&amp;autohide=0&amp;clickpause=true&amp;scrollpause=true&amp;hideat=mobile&amp;delay=0&amp;readyclass=fadeIn&amp;playerclass=videobackground-player&amp;wrapperclass=video-background&amp;api=%2F%2Fwww.youtube.com%2Fplayer_api&amp;$this=%5Bobject%20Object%5D&amp;show=true&amp;play=false&amp;playlist=0gWTqEq_qGU&amp;$wrapper=%5Bobject%20Object%5D&amp;$player=%5Bobject%20Object%5D&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fwww.uvu.edu&amp;widgetid=1" id="widget2" width="640" height="360" frameborder="0"></iframe>
+					<div class="hero">
+						<h1>Interactive<br/>Sustainability<br/>Project</h1>
+						<div class="icon touch"></div>
+						<span>Touch to Start</span>
+					</div>
+			</section>
 			<section id="section-energy">
 				<div id="energy-1">
-					<svg><path class="svg-border" d="M1200 71.25 L1200 0 L0 0 L0 285 L1200 285 Z" /></svg>
+					<svg><path class="svg-border" d="M1201 71.25 L1201 1 L1 1 L1 284 L1201 284 Z" /></svg>
 					<div class="summary">
 						<p><strong>General Design and Location of Orem Original Campus</strong><br/><br/>
 							UVU campus was designed with unit construction buildings, a concept far ahead of its time. The buildings were built much like a "LEGO" block system, so that the grid could be adapted in all directions. This has allowed UVU to expand in a much more cost effective and efficient manner. Buildings can be added to an already efficient system instead of creating new systems for each structure.</p>
@@ -87,10 +94,128 @@
 				</div>
 
 			</section>
-			<section id="section-water">Water</section>
-			<section id="section-waste">Waste</section>
+			<section id="section-water">
+				<div id="water-1">
+					<svg><path d="M0 280 L0 35 L50 35 M0 35 L0 0 L50 0" /></svg>
+					<div class="summary">
+						<span>Irigation System</span><br/>
+						<span>Liquid Injection</span>
+					</div>
+				</div>
+
+				<div id="water-2">
+					<svg><path d="M0 0 L0 325 L50 325 M0 292 L50 292 M0 259 L50 259" /></svg>
+					<div class="summary">
+						<span>Low-Flow Toilets and Sinks</span><br/>
+						<span>Refillable Water Bottle Stations</span><br/>
+						<span>Hobart Flight Automatic Dishwasher</span>
+					</div>
+				</div>
+
+				<div id="water-3">
+					<svg><path d="M0 50 L0 0 L170 0" /></svg>
+					<div class="summary">
+						<span>Reflection Ponds</span>
+					</div>
+				</div>
+
+				<div class="icon closed" data-opens="water-1"></div>
+				<div class="icon closed" data-opens="water-2"></div>
+				<div class="icon closed" data-opens="water-3"></div>
+				<div class="backdrop"></div>
+
+				<div id="water-1-modal" class="modal">
+					<div class="close-icon"><img src="images/close-x.svg" /></div>
+					<div class="highlight">
+							<p><span>Irigation System</span><br/>
+							Lorum ipsum</p>
+						</div>
+						<div class="highlight">
+							<p><span>Liquid Injection</span><br/>
+							Lorum ipsum</p>
+						</div>
+				</div>
+
+				<div id="water-2-modal" class="modal">
+					<div class="close-icon"><img src="images/close-x.svg" /></div>
+					<div class="highlight">
+						<p><span>Low-Flow Toilets and Sinks</span><br/>
+						Lorum ipsum</p>
+					</div>
+					<div class="highlight">
+						<p><span>Refillable Water Bottle Stations</span><br/>
+						Lorum ipsum</p>
+					</div>
+					<div class="highlight">
+						<p><span>Hobart Flight Automatic Dishwasher</span><br/>
+						Lorum ipsum</p>
+					</div>
+				</div>
+
+				<div id="water-3-modal" class="modal">
+					<div class="close-icon"><img src="images/close-x.svg" /></div>
+					<div class="highlight">
+						<p><span>Reflection Ponds</span><br/>
+						Lorum ipsum</p>
+					</div>
+				</div>
+			</section>
+			<section id="section-waste">
+				<div id="waste-1">
+					<svg><path class="svg-border" d="M1430 0 L1430 40 L1 40 L1 293 L1740 293 L1740 40" /></svg>
+					<div class="summary">
+						<p><strong>Surplus Sale</strong><br/><br/>
+						UVU's "surplus sale" is held roughly once a month and reduces UVU's impact on local landfills by increasing the lifespan of equipment and allowing the public to reuse old material.</p>
+					</div>
+					<div class="summary">
+						<p><strong>Deep Fry Oil</strong><br/><br/>
+						UVU Dining Services partners with a local corporation to recycle the used deep fry oil into animal feed. This creates at least one reason to feel good about eating UVU fried food.</p>
+					</div>
+				</div>
+
+				<div id="waste-2">
+					<svg><path d="M0 0 L0 40 L165 40" /></svg>
+					<div class="summary">
+						<span>Carpet</span>
+					</div>
+				</div>
+
+				<div id="waste-3">
+					<svg><path d="M0 185 L0 0 L35 0 M0 33 L35 33" /></svg>
+					<div class="summary">
+						<span>Recycling Bins</span><br/>
+						<span>Recycling Bailer</span>
+					</div>
+				</div>
+
+				<div class="icon open" data-opens="waste-1"></div>
+				<div class="icon closed" data-opens="waste-2"></div>
+				<div class="icon closed" data-opens="waste-3"></div>
+				<div class="backdrop"></div>
+
+				<div id="waste-2-modal" class="modal">
+					<div class="close-icon"><img src="images/close-x.svg" /></div>
+					<div class="highlight">
+						<p><span>Carpet</span><br/>
+						Lorum ipsum</p>
+					</div>
+				</div>
+
+				<div id="waste-3-modal" class="modal">
+					<div class="close-icon"><img src="images/close-x.svg" /></div>
+					<div class="highlight">
+						<p><span>Recycling Bins</span><br/>
+						Lorum ipsum</p>
+					</div>
+					<div class="highlight">
+						<p><span>Recycling Bailer</span><br/>
+						Lorum ipsum</p>
+					</div>
+				</div>
+
+			</section>
 			<section id="section-transit">Transit</section>
-			<section id="section-pledge">Pledge</section>
+			<!-- <section id="section-pledge">Pledge</section> -->
 		</main>
 		<nav>
 			<ul>
@@ -99,7 +224,7 @@
 				<li id="water"><img src="images/icon-water.svg" alt="icon" />Water</li>
 				<li id="waste"><img src="images/icon-waste.svg" alt="icon" />Waste</li>
 				<li id="transit"><img src="images/icon-transit.svg" alt="icon" />Transit</li>
-				<li id="pledge"><img src="images/icon-pledge.svg" alt="icon" />Pledge</li>
+				<!-- <li id="pledge"><img src="images/icon-pledge.svg" alt="icon" />Pledge</li> -->
 			</ul>
 		</nav>
 	</body>

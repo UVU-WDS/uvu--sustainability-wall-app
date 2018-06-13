@@ -52,7 +52,16 @@ main {
             }
             &.open { background-image: url('images/marker2.svg'); }
         }
-        svg { position: absolute; top: 0; left: 0; transition: opacity 0.2s; }
+        svg {
+            position: absolute;
+            top: 0; left: 0;
+            transition: opacity 0.2s;
+            path {
+                fill: none;
+                stroke: @green;
+                stroke-width: 2px;
+            }
+        }
         p {
             font-size: 25px;
             font-weight: 600;
@@ -86,6 +95,9 @@ main {
             color: @white;
             width: 1000px; height: auto;
             display: flex; flex-direction: column;
+            opacity: 0;
+            transition: opacity 0.4s;
+            &.opened { opacity: 1; pointer-events: initial; }
             .close-icon {
                 width: 40px;
                 height: 40px;
@@ -107,76 +119,157 @@ main {
             }
         }
     }
-    #section-video { background-image: url('images/back-1.jpg'); }
+    #section-video {
+        background-image: url('images/back-1.jpg');
+        .videobackground {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100vw; height: 90vh;
+            pointer-events: none;
+        }
+        .hero {
+            top: 0; right: 0;
+            width: 35vw; height: 100vh;
+            background-color: rgba(0,0,0,0.6);
+            color: @white;
+            padding: 0 125px 200px;
+            display: flex; flex-direction: column;
+            justify-content: space-evenly;
+            .icon.touch {
+                background-image: url('images/touch-finger.svg');
+                background-repeat: no-repeat;
+                width: 230px; height: 230px;
+                margin: 0 auto;
+            }
+        }
+    }
     #section-energy {
         background-image: url('images/back-2.jpg');
         &.open > div:nth-child(-n+8) { opacity: 0; animation: fadingin 1.5s ease-out 0.2s forwards; }
         &.open path.svg-border { animation: border 1s ease-in-out 0.5s forwards; }
         div[data-opens="energy-1"] { top: 560px; left: 1355px; }
-        div#energy-1 {
+        div[data-opens="energy-2"] { top: 100px; left: 235px; }
+        div[data-opens="energy-3"] { top: 295px; left: 840px; }
+        div[data-opens="energy-4"] { top: 720px; left: 1715px; }
+        #energy-1 {
             top: 520px; left: 175px;
             width: 1200px;
-            svg { height: 100%; width: 100%; }
-            path {
-                fill: none;
-                stroke: @green;
-                stroke-width: 4px;
-            }
+            svg { height: 287px; width: 1202px; }
+            path { stroke-width: 4px; }
         }
-        div[data-opens="energy-2"] { top: 100px; left: 235px; }
-        div#energy-2 {
+        #energy-2 {
             top: 85px; left: 400px;
-            svg { top: 0px; left: -130px; }
-            path {
-                fill: none;
-                stroke: @green;
-                stroke-width: 2px;
+            svg {
+                top: 0px; left: -130px;
+                width: 120px; height: 46px;
             }
         }
-        div[data-opens="energy-3"] { top: 295px; left: 840px; }
-        div#energy-3 {
+        #energy-3 {
             top: 180px; left: 905px;
-            svg { top: 13px; left: -45px; }
-            path {
-                fill: none;
-                stroke: @green;
-                stroke-width: 2px;
+            svg {
+                top: 13px; left: -45px;
+                width: 35px; height: 120px;
             }
         }
-        div[data-opens="energy-4"] { top: 720px; left: 1715px; }
-        div#energy-4 {
+        #energy-4 {
             top: 815px; left: 1315px;
-            svg { top: -60px; left: 380px; }
-            path {
-                fill: none;
-                stroke: @green;
-                stroke-width: 2px;
+            svg {
+                top: -60px; left: 380px;
+                width: 41px; height: 76px;
             }
         }
         #energy-2-modal {
-            opacity: 0;
-            transition: opacity 0.4s;
             .highlight:nth-child(2) { background-image: url('http://via.placeholder.com/200x150'); }
             .highlight:nth-child(3) { background-image: url('http://via.placeholder.com/200x150'); }
-            &.opened { opacity: 1; pointer-events: initial; }
         }
         #energy-3-modal {
-            opacity: 0;
-            transition: opacity 0.4s;
             .highlight:nth-child(2) { background-image: url('http://via.placeholder.com/200x150'); }
             .highlight:nth-child(3) { background-image: url('http://via.placeholder.com/200x150'); }
             .highlight:nth-child(4) { background-image: url('http://via.placeholder.com/200x150'); }
-            &.opened { opacity: 1; pointer-events: initial; }
         }
         #energy-4-modal {
-            opacity: 0;
-            transition: opacity 0.4s;
             .highlight:nth-child(2) { background-image: url('http://via.placeholder.com/200x150'); }
-            &.opened { opacity: 1; pointer-events: initial; }
         }
     }
-    #section-water { background-image: url('images/back-3.jpg'); }
-    #section-waste { background-image: url('images/back-4.jpg'); }
+    #section-water {
+        background-image: url('images/back-3.jpg');
+        &.open > div:nth-child(-n+6) { opacity: 0; animation: fadingin 1.5s ease-out 0.2s forwards; }
+        div[data-opens="water-1"] { top: 453px; left: 391px; }
+        div[data-opens="water-2"] { top: 417px; left: 45px; }
+        div[data-opens="water-3"] { top: 625px; left: 1320px; }
+        #water-1 {
+            top: 165px; left: 470px;
+            svg {
+                top: 14px; left: -60px;
+                width: 50px; height: 280px;
+            }
+        }
+        #water-2 {
+            top: 700px; left: 125px;
+            svg {
+                top: -245px; left: -60px;
+                width: 50px; height: 326px;
+            }
+        }
+        #water-3 {
+            top: 565px; left: 1525px;
+            svg {
+                top: 14px; left: -185px;
+                width: 170px; height: 50px;
+            }
+        }
+        #water-1-modal {
+            .highlight:nth-child(2) { background-image: url('http://via.placeholder.com/200x150'); }
+            .highlight:nth-child(3) { background-image: url('http://via.placeholder.com/200x150'); }
+        }
+        #water-2-modal {
+            .highlight:nth-child(2) { background-image: url('http://via.placeholder.com/200x150'); }
+            .highlight:nth-child(3) { background-image: url('http://via.placeholder.com/200x150'); }
+            .highlight:nth-child(4) { background-image: url('http://via.placeholder.com/200x150'); }
+        }
+        #water-3-modal {
+            .highlight:nth-child(2) { background-image: url('http://via.placeholder.com/200x150'); }
+        }
+    }
+    #section-waste {
+        background-image: url('images/back-4.jpg');
+        &.open > div:nth-child(-n+6) { opacity: 0; animation: fadingin 1.5s ease-out 0.2s forwards; }
+        &.open path.svg-border { animation: border 1s ease-in-out 0.5s forwards; }
+        div[data-opens="waste-1"] { top: 555px; left: 1500px; }
+        div[data-opens="waste-2"] { top: 490px; left: 175px; }
+        div[data-opens="waste-3"] { top: 440px; left: 845px; }
+        #waste-1 {
+            display: flex;
+            top: 625px; left: 90px;
+            width: 1740px;
+            svg {
+                top: -40px; left: 0;
+                height: 295px; width: 1742px;
+            }
+            path { stroke-width: 4px; }
+        }
+        #waste-2 {
+            top: 550px; left: 375px;
+            svg {
+                top: -25px; left: -180px;
+                width: 165px; height: 40px;
+            }
+        }
+        #waste-3 {
+            top: 245px; left: 910px;
+            svg {
+                top: 14px; left: -45px;
+                width: 35px; height: 185px;
+            }
+        }
+        #waste-2-modal {
+            .highlight:nth-child(2) { background-image: url('http://via.placeholder.com/200x150'); }
+        }
+        #waste-3-modal {
+            .highlight:nth-child(2) { background-image: url('http://via.placeholder.com/200x150'); }
+            .highlight:nth-child(3) { background-image: url('http://via.placeholder.com/200x150'); }
+        }
+    }
     #section-transit { background-image: url('images/back-5.jpg'); }
     #section-pledge { background-image: url('images/back-6.jpg'); }
 }
@@ -205,7 +298,7 @@ nav {
         display: flex;
         justify-content: space-between;
         list-style: none;
-        width: 750px;
+        width: 625px; // Switch back to 750px if adding pledge back in
         margin: 0; padding: 0;
         li {
             display: flex;
