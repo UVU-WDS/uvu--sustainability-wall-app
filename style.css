@@ -389,8 +389,71 @@ main #section-waste #waste-3-modal .highlight:nth-child(3) {
 main #section-transit {
   background-image: url('images/back-5.jpg');
 }
-main #section-pledge {
-  background-image: url('images/back-6.jpg');
+main #section-transit.open > div:nth-child(-n+6) {
+  opacity: 0;
+  animation: fadingin 1.5s ease-out 0.2s forwards;
+}
+main #section-transit.open path.svg-border {
+  animation: border 1s ease-in-out 0.5s forwards;
+}
+main #section-transit div[data-opens="transit-1"] {
+  top: 800px;
+  left: 40px;
+}
+main #section-transit div[data-opens="transit-2"] {
+  top: 355px;
+  left: 1297px;
+}
+main #section-transit div[data-opens="transit-3"] {
+  top: 370px;
+  left: 1475px;
+}
+main #section-transit #transit-1 {
+  top: 545px;
+  left: 59px;
+  width: 1190px;
+}
+main #section-transit #transit-1 svg {
+  top: 0;
+  left: 0;
+  height: 287px;
+  width: 1191px;
+}
+main #section-transit #transit-1 path {
+  stroke-width: 4px;
+}
+main #section-transit #transit-2 {
+  top: 220px;
+  left: 740px;
+  text-align: right;
+}
+main #section-transit #transit-2 svg {
+  top: 13px;
+  left: 365px;
+  width: 213px;
+  height: 130px;
+}
+main #section-transit #transit-3 {
+  top: 180px;
+  left: 1539px;
+}
+main #section-transit #transit-3 svg {
+  top: 14px;
+  left: -45px;
+  width: 35px;
+  height: 185px;
+}
+main #section-transit #transit-2-modal .highlight:nth-child(2) {
+  background-image: url('http://via.placeholder.com/200x150');
+}
+main #section-transit #transit-2-modal .highlight:nth-child(3) {
+  background-image: url('http://via.placeholder.com/200x150');
+}
+main #section-transit #transit-3-modal .highlight:nth-child(2) {
+  background-image: url('http://via.placeholder.com/200x150');
+}
+main #section-transit #transit-3-modal .highlight:nth-child(3) {
+  background-image: url('http://via.placeholder.com/200x150');
 }
 @keyframes fadingin {
   to {

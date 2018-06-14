@@ -5,7 +5,7 @@
 @black: #181818;
 @almost-black: #1a1a1a;
 
-// Fonts brought in via HTML <link>
+// Fonts are brought in via HTML <link>
 * { box-sizing: border-box; font-family: 'Rajdhani', sans-serif; }
 body {
     margin: 0; padding: 0;
@@ -275,8 +275,47 @@ main {
             .highlight:nth-child(3) { background-image: url('http://via.placeholder.com/200x150'); }
         }
     }
-    #section-transit { background-image: url('images/back-5.jpg'); }
-    #section-pledge { background-image: url('images/back-6.jpg'); }
+    #section-transit {
+        background-image: url('images/back-5.jpg');
+        &.open > div:nth-child(-n+6) { opacity: 0; animation: fadingin 1.5s ease-out 0.2s forwards; }
+        &.open path.svg-border { animation: border 1s ease-in-out 0.5s forwards; }
+        div[data-opens="transit-1"] { top: 800px; left: 40px; }
+        div[data-opens="transit-2"] { top: 355px; left: 1297px; }
+        div[data-opens="transit-3"] { top: 370px; left: 1475px; }
+        #transit-1 {
+            top: 545px; left: 59px;
+            width: 1190px;
+            svg {
+                top: 0; left: 0;
+                height: 287px; width: 1191px;
+            }
+            path { stroke-width: 4px; }
+        }
+        #transit-2 {
+            top: 220px; left: 740px;
+            text-align: right;
+            svg {
+                top: 13px; left: 365px;
+                width: 213px; height: 130px;
+            }
+        }
+        #transit-3 {
+            top: 180px; left: 1539px;
+            svg {
+                top: 14px; left: -45px;
+                width: 35px; height: 185px;
+            }
+        }
+        #transit-2-modal {
+            .highlight:nth-child(2) { background-image: url('http://via.placeholder.com/200x150'); }
+            .highlight:nth-child(3) { background-image: url('http://via.placeholder.com/200x150'); }
+        }
+        #transit-3-modal {
+            .highlight:nth-child(2) { background-image: url('http://via.placeholder.com/200x150'); }
+            .highlight:nth-child(3) { background-image: url('http://via.placeholder.com/200x150'); }
+        }
+    }
+    // #section-pledge { background-image: url('images/back-6.jpg'); }
 }
 
 // Animations
