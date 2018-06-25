@@ -331,7 +331,7 @@ main #section-waste.open path.svg-border {
   animation: border 1s ease-in-out 0.5s forwards;
 }
 main #section-waste div[data-opens="waste-1"] {
-  top: 555px;
+  top: 530px;
   left: 1500px;
 }
 main #section-waste div[data-opens="waste-2"] {
@@ -344,7 +344,7 @@ main #section-waste div[data-opens="waste-3"] {
 }
 main #section-waste #waste-1 {
   display: flex;
-  top: 625px;
+  top: 600px;
   left: 90px;
   width: 1740px;
 }
